@@ -1,2 +1,2 @@
 # BTL-1
-Từ điển
+Từ điển hủy diệt 
