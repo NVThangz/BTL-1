@@ -7,8 +7,15 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
+
 public class DictionaryManagement {
-    public static void insertFromCommandline() {
+    private Dictionary dictionary = new Dictionary();
+
+    public DictionaryManagement(Dictionary dictionary) {
+        this.dictionary = dictionary;
+    }
+
+    public void insertFromCommandline() {
         Scanner sc1 = new Scanner(System.in);
         System.out.println("Nhập số lượng từ vựng");
         int n = sc1.nextInt();
@@ -16,11 +23,11 @@ public class DictionaryManagement {
             System.out.println("Nhập từ và nghĩa");
             Scanner sc2 = new Scanner(System.in);
             Word temp = new Word(sc2.nextLine(), sc2.nextLine());
-            Dictionary.words.add(temp);
+            dictionary.addWord(temp);
         }
     }
 
-    public static void insertFromFile() {
+    public void insertFromFile() {
         try {
             BufferedReader br = new BufferedReader(new FileReader("Dictionary.txt"));
             ArrayList<String> w = new ArrayList<String>();
@@ -32,54 +39,56 @@ public class DictionaryManagement {
             br.close();
             for (int i = 0; i < w.size(); i += 2) {
                 Word temp = new Word(w.get(i), w.get(i + 1));
-                Dictionary.words.add(temp);
+                dictionary.addWord(temp);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void dictionaryLookup() {
+    public void dictionaryLookup() {
         boolean isFound = false;
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập từ cần tìm");
         String s = sc.nextLine();
-        for (int i = 0; i < Dictionary.words.size(); i ++) {
-            if(Objects.equals(Dictionary.words.get(i).getWord_target(), s)) {
-                System.out.println(Dictionary.words.get(i).getWord_target() + "\t" + Dictionary.words.get(i).getWord_explain());
+        for (int i = 0; i < dictionary.size(); i++) {
+            if (Objects.equals(dictionary.getWord_target(i), s)) {
+                System.out.println(dictionary.getWord_target(i) + "\t" + dictionary.getWord_explain(i));
                 isFound = true;
             }
         }
-        if(!isFound ) {
+        if (!isFound) {
             System.out.println("Từ cần tìm không tồn tại");
         }
     }
 
-    public static void delete() {
+    public void delete() {
         boolean isFound = false;
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập từ cần xóa");
         String s = sc.nextLine();
-        for (int i = 0; i < Dictionary.words.size(); i ++) {
-            if(Objects.equals(Dictionary.words.get(i).getWord_target(), s)) {
-                Dictionary.words.remove(i);
+        for (int i = 0; i < dictionary.size(); i++) {
+            if (Objects.equals(dictionary.getWord_target(i), s)) {
+                dictionary.removeWord(i);
                 isFound = true;
             }
         }
-        if(!isFound) {
+        if (!isFound) {
             System.out.println("Từ cần xóa không tồn tại");
         }
     }
 
-    public static void dictionaryExportToFile() {
+    public void dictionaryExportToFile() {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("Dictionary.txt"));
-            for (int i = 0; i < Dictionary.words.size(); i ++) {
-                bw.write(Dictionary.words.get(i).getWord_target() + "\t" + Dictionary.words.get(i).getWord_explain() + "\n");
+            for (int i = 0; i < dictionary.size(); i++) {
+                bw.write(dictionary.getWord_target(i) + "\t" + dictionary.getWord_explain(i) + "\n");
             }
             bw.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
 }
