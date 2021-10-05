@@ -38,14 +38,18 @@ public class DictionaryManagement {
     }
 
     public static void dictionaryLookup() {
+        boolean Have = false;
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập từ cần tìm");
         String s = sc.nextLine();
         for (int i = 0; i < Dictionary.words.size(); i ++) {
             if(Objects.equals(Dictionary.words.get(i).getWord_target(), s)) {
-                System.out.print(Dictionary.words.get(i).getWord_target());
-                System.out.print(Dictionary.words.get(i).getWord_explain());
+                System.out.print(Dictionary.words.get(i).getWord_target() + "\t" + Dictionary.words.get(i).getWord_explain());
+                Have = true;
             }
+        }
+        if(!Have) {
+            System.out.println("Từ cần tìm không tồn tại");
         }
     }
 }
