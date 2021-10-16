@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
@@ -54,8 +55,9 @@ public class DictionaryCommandline {
         }
     }
 
-    public static void main(String[] args) {
-        DictionaryCommandline test = new DictionaryCommandline();
-        test.dictionaryBasic();
+    public static void main(String[] args) throws IOException {
+        GoogleAPI t = new GoogleAPI();
+        Dictionary dictionary = new Dictionary();
+        dictionary.TextToSpeech(t.VtoE("quả táo"));
     }
 }
