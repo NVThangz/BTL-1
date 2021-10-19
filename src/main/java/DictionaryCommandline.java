@@ -58,7 +58,7 @@ public class DictionaryCommandline {
     public void dictionarytest() {
         Dictionary dictionary = new Dictionary();
         DictionaryManagement management = new DictionaryManagement(dictionary);
-        management.insertFromSQLite("va");
+        management.insertFromSQLite("av");
         showAllWords(dictionary);
     }
 
