@@ -35,7 +35,4 @@ public class GoogleAPI {
         return translate("vi", "en", text);
     }
 
-    public static void main(String[] args) throws IOException {
-
-    }
 }

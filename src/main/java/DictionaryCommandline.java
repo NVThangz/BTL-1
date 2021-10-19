@@ -55,9 +55,15 @@ public class DictionaryCommandline {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        GoogleAPI t = new GoogleAPI();
+    public void dictionarytest() {
         Dictionary dictionary = new Dictionary();
-        dictionary.TextToSpeech(t.VtoE("quả táo"));
+        DictionaryManagement management = new DictionaryManagement(dictionary);
+        management.insertFromSQLite("va");
+        showAllWords(dictionary);
+    }
+
+    public static void main(String[] args) throws IOException {
+        DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
+        dictionaryCommandline.dictionarytest();
     }
 }

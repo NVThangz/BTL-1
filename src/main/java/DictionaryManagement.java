@@ -15,6 +15,7 @@ public class DictionaryManagement {
         this.dictionary = dictionary;
     }
 
+
     public void insertFromCommandline() {
         Scanner sc1 = new Scanner(System.in);
         System.out.println("Nhập số lượng từ vựng");
@@ -90,5 +91,8 @@ public class DictionaryManagement {
         }
     }
 
+    public void insertFromSQLite(String name) {
+        SQLiteJDBC sqlite = new SQLiteJDBC(dictionary, name);
+    }
 
 }
