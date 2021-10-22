@@ -58,12 +58,12 @@ public class DictionaryCommandline {
     public void dictionarytest() {
         Dictionary dictionary = new Dictionary();
         DictionaryManagement management = new DictionaryManagement(dictionary);
-        management.insertFromSQLite("av");
+        management.insertFromDatabase("av");
         showAllWords(dictionary);
     }
 
     public static void main(String[] args) throws IOException {
-        DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
-        dictionaryCommandline.dictionarytest();
+        DictionaryCommandline d = new DictionaryCommandline();
+        d.dictionarytest();
     }
 }

@@ -91,8 +91,15 @@ public class DictionaryManagement {
         }
     }
 
-    public void insertFromSQLite(String name) {
+    public void insertFromDatabase(String name) {
         SQLiteJDBC sqlite = new SQLiteJDBC(dictionary, name);
     }
+/*
+    public void inserttoSQLiteJDBC(Dictionary dictionary, String word_target, String word_explain, String pronounce) {
+        SQLiteJDBC sqlite = new SQLiteJDBC(dictionary, "av");
+        sqlite.insert(word_target,word_explain,pronounce);
+    }
+*/
+
 
 }
