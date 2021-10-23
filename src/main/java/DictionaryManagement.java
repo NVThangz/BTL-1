@@ -107,14 +107,14 @@ public class DictionaryManagement {
     }
 
 
-    public void insertFromDatabase(String name) {
+    public void insertFromDatabase(String table_name) {
         SQLiteJDBC sqlite = new SQLiteJDBC();
-        sqlite.readDatabase(dictionary,name);
+        sqlite.readDatabase(dictionary,table_name);
     }
 
-    public void dictionaryExportToDatabase(String name) {
+    public void dictionaryExportToDatabase(String table_name) {
         SQLiteJDBC sqlite = new SQLiteJDBC();
-        sqlite.overwriteDatabase(dictionary,name);
+        sqlite.overwriteDatabase(dictionary,table_name);
     }
 
 }
