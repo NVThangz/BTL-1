@@ -1,5 +1,3 @@
-import com.sun.speech.freetts.Voice;
-import com.sun.speech.freetts.VoiceManager;
 
 import java.util.ArrayList;
 
@@ -22,6 +20,10 @@ public class Dictionary {
         return listWords.get(i).getWord_explain();
     }
 
+    public String getPronounce(int i) {
+        return listWords.get(i).getPronounce();
+    }
+
     public void addWord(Word e) {
         listWords.add(e);
     }
@@ -32,29 +34,6 @@ public class Dictionary {
 
     public void removeWord(int i) {
         listWords.remove(i);
-    }
-
-    public void TextToSpeech(String text) {
-        Voice voice = VoiceManager.getInstance().getVoice("kevin16");
-        if (voice != null) {
-            voice.allocate();
-        }
-        try {
-            voice.setRate(120);
-            voice.setPitch(120);
-            voice.setVolume(10);
-            voice.speak(text);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void SpeechWord_target(int i) {
-        TextToSpeech(listWords.get(i).getWord_target());
-    }
-
-    public void SpeechWord_explain(int i) {
-        TextToSpeech(listWords.get(i).getWord_explain());
     }
 
 

@@ -55,14 +55,15 @@ public class DictionaryCommandline {
         }
     }
 
-    public void dictionarytest() {
+    public void dictionarytest() throws IOException {
         Dictionary dictionary = new Dictionary();
         DictionaryManagement management = new DictionaryManagement(dictionary);
-        management.insertFromDatabase("av");
-        showAllWords(dictionary);
+        management.speak("apple");
+        GoogleAPI googleAPI = new GoogleAPI();
+        System.out.println(googleAPI.EtoV("apple"));
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
         DictionaryCommandline d = new DictionaryCommandline();
         d.dictionarytest();
     }

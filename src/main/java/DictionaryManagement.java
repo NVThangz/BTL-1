@@ -91,15 +91,30 @@ public class DictionaryManagement {
         }
     }
 
-    public void insertFromDatabase(String name) {
-        SQLiteJDBC sqlite = new SQLiteJDBC(dictionary, name);
+    public void speak(String text) {
+        TextToSpeech speech = new TextToSpeech(text);
+        speech.speakText();
     }
-/*
-    public void inserttoSQLiteJDBC(Dictionary dictionary, String word_target, String word_explain, String pronounce) {
-        SQLiteJDBC sqlite = new SQLiteJDBC(dictionary, "av");
-        sqlite.insert(word_target,word_explain,pronounce);
-    }
-*/
 
+    public void speakWord_target(int i) {
+        TextToSpeech speech = new TextToSpeech(dictionary.getWord_target(i));
+        speech.speakText();
+    }
+
+    public void speakWord_explain(int i) {
+        TextToSpeech speech = new TextToSpeech(dictionary.getWord_explain(i));
+        speech.speakText();
+    }
+
+
+    public void insertFromDatabase(String name) {
+        SQLiteJDBC sqlite = new SQLiteJDBC();
+        sqlite.readDatabase(dictionary,name);
+    }
+
+    public void dictionaryExportToDatabase(String name) {
+        SQLiteJDBC sqlite = new SQLiteJDBC();
+        sqlite.overwriteDatabase(dictionary,name);
+    }
 
 }
