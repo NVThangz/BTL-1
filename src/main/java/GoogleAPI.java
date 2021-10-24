@@ -24,7 +24,9 @@ public class GoogleAPI {
             response.append(inputLine);
         }
         in.close();
-        return response.toString();
+        String s1 = response.toString();
+        String s2 = s1.replaceAll("&#39;", "'");
+        return s2;
     }
 
     public String EtoV(String text) throws IOException {
