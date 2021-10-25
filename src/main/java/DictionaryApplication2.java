@@ -116,7 +116,7 @@ public class DictionaryApplication2 extends JFrame implements ActionListener {
         fixButton.setHorizontalTextPosition(JButton.CENTER);
         fixButton.setVerticalTextPosition(JButton.BOTTOM);
         fixButton.setBackground(new Color(201, 228, 214));
-        fixButton.setToolTipText("Click left mouse to modify a new word");
+        fixButton.setToolTipText("Click left mouse to modify a word");
         this.add(fixButton);
 
         ImageIcon image6 = new ImageIcon("Icon\\api1.png");
@@ -292,6 +292,7 @@ public class DictionaryApplication2 extends JFrame implements ActionListener {
 
         if (e.getSource() == backButton) {
             this.dispose();
+            Dictionary.words.clear();
             new MenuWindow();
         }
     }

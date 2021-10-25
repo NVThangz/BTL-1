@@ -298,6 +298,7 @@ public class DictionaryApplication extends JFrame implements ActionListener {
 
         if (e.getSource() == backButton) {
             this.dispose();
+            Dictionary.words.clear();
             new MenuWindow();
         }
     }
