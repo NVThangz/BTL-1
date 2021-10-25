@@ -60,6 +60,7 @@ public class DictionaryApplication2 extends JFrame implements ActionListener {
         addButton.addActionListener(this);
         addButton.setIcon(image1);
         addButton.setText("Add Word");
+        addButton.setCursor(cur);
         addButton.setFocusable(false);
         addButton.setHorizontalTextPosition(JButton.CENTER);
         addButton.setVerticalTextPosition(JButton.BOTTOM);
@@ -73,6 +74,7 @@ public class DictionaryApplication2 extends JFrame implements ActionListener {
         delButton.addActionListener(this);
         delButton.setIcon(image2);
         delButton.setText("Delete word");
+        delButton.setCursor(cur);
         delButton.setFocusable(false);
         delButton.setHorizontalTextPosition(JButton.CENTER);
         delButton.setVerticalTextPosition(JButton.BOTTOM);
@@ -86,6 +88,7 @@ public class DictionaryApplication2 extends JFrame implements ActionListener {
         quitButton.addActionListener(this);
         quitButton.setIcon(image3);
         quitButton.setText("Exit");
+        quitButton.setCursor(cur);
         quitButton.setFocusable(false);
         quitButton.setHorizontalTextPosition(JButton.CENTER);
         quitButton.setVerticalTextPosition(JButton.BOTTOM);
@@ -99,6 +102,7 @@ public class DictionaryApplication2 extends JFrame implements ActionListener {
         lisButton.addActionListener(this);
         lisButton.setIcon(image4);
         lisButton.setText("Pronounce");
+        lisButton.setCursor(cur);
         lisButton.setFocusable(false);
         lisButton.setHorizontalTextPosition(JButton.CENTER);
         lisButton.setVerticalTextPosition(JButton.BOTTOM);
@@ -112,6 +116,7 @@ public class DictionaryApplication2 extends JFrame implements ActionListener {
         fixButton.addActionListener(this);
         fixButton.setIcon(image5);
         fixButton.setText("Modify");
+        fixButton.setCursor(cur);
         fixButton.setFocusable(false);
         fixButton.setHorizontalTextPosition(JButton.CENTER);
         fixButton.setVerticalTextPosition(JButton.BOTTOM);
