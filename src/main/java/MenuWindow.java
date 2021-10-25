@@ -79,6 +79,7 @@ public class MenuWindow implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == jButton) {
             jFrame.dispose();
+            DictionaryManagement.insertFromDatabase("av");
             new DictionaryApplication();
         }
 
