@@ -5,6 +5,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
+
 public class GoogleAPI {
 
     // https://stackoverflow.com/questions/8147284/how-to-use-google-translate-api-in-my-java-application
@@ -23,7 +24,9 @@ public class GoogleAPI {
             response.append(inputLine);
         }
         in.close();
-        return response.toString();
+        String s1 = response.toString();
+        String s2 = s1.replaceAll("&#39;", "'");
+        return s2;
     }
 
     public String EtoV(String text) throws IOException {
@@ -33,4 +36,5 @@ public class GoogleAPI {
     public String VtoE(String text) throws IOException {
         return translate("vi", "en", text);
     }
+
 }

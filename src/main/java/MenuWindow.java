@@ -42,10 +42,12 @@ public class MenuWindow implements ActionListener {
         jLabel5.setBounds(300, 50, 32, 32);
 
         //button
+        Cursor cur = new Cursor(Cursor.HAND_CURSOR);
         jButton = new JButton();
         jButton.setBounds(200, 230, 90, 50);
         jButton.addActionListener(this);
         jButton.setText("Anh - Việt");
+        jButton.setCursor(cur);
         jButton.setFocusable(false);
         jButton.setBackground(new Color(201, 228, 214));
         jButton.setToolTipText("Từ điển Anh - Việt");
@@ -54,6 +56,7 @@ public class MenuWindow implements ActionListener {
         jButton2.setBounds(400, 230, 90, 50);
         jButton2.addActionListener(this);
         jButton2.setText("Việt - Anh");
+        jButton2.setCursor(cur);
         jButton2.setFocusable(false);
         jButton2.setBackground(new Color(201, 228, 214));
         jButton2.setToolTipText("Từ điển Việt - Anh");
@@ -73,6 +76,8 @@ public class MenuWindow implements ActionListener {
         jFrame.setResizable(false);
         jFrame.add(jButton);
         jFrame.add(jButton2);
+        ImageIcon image = new ImageIcon("Icon\\icon.png");
+        jFrame.setIconImage(image.getImage());
     }
 
     @Override
@@ -83,8 +88,11 @@ public class MenuWindow implements ActionListener {
             new DictionaryApplication();
         }
 
+
         if (e.getSource() == jButton2) {
             jFrame.dispose();
+            DictionaryManagement.insertFromDatabase("va");
+            new DictionaryApplication2();
         }
     }
 }

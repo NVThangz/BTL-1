@@ -120,6 +120,24 @@ public class DictionaryManagement {
     }
     */
 
+    public static void speakWord_explain(int i) {
+        String s = Dictionary.words.get(i).getWord_explain();;
+        if(s.contains("<i>")) {
+            s = s.substring(s.indexOf(">") + 1);
+            s = s.substring(0, s.indexOf("<"));
+        }
+        else {
+            s = s.replaceAll("excl: ", "");
+            s = s.replaceAll("verb: ", "");
+            s = s.replaceAll("noun: ", "");
+            s = s.replaceAll("adj: ", "");
+            s = s.replaceAll("verb: ", "");
+            s = s.replaceAll("adjective: ", "");
+        }
+        TextToSpeech speech = new TextToSpeech(s);
+        speech.speakText();
+    }
+
     public static void insertFromDatabase(String table_name) {
         SQLiteJDBC sqlite = new SQLiteJDBC();
         sqlite.readDatabase(table_name);

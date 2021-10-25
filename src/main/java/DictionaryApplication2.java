@@ -7,14 +7,14 @@ import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 
-public class DictionaryApplication extends JFrame implements ActionListener {
+public class DictionaryApplication2 extends JFrame implements ActionListener {
     JButton button;
     JButton quitButton;
     JButton addButton;
     JButton delButton;
     JButton lisButton;
     JButton fixButton;
-    JButton apiButton;
+    JButton apiButton2;
     JButton backButton;
     JTextField textField;
     KeyListener keyListener;
@@ -24,7 +24,7 @@ public class DictionaryApplication extends JFrame implements ActionListener {
     DefaultListModel<String> model;
     JScrollPane jScrollPane;
 
-    DictionaryApplication() {
+    DictionaryApplication2() {
         //frame
         try {
             this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("Icon\\bgr1.jpg")))));
@@ -43,9 +43,9 @@ public class DictionaryApplication extends JFrame implements ActionListener {
         this.setResizable(false);
 
         //button
-        button = new JButton("Dịch");
+        button = new JButton("Translate");
         button.setFocusable(false);
-        button.setBounds(300, 85, 60, 30);
+        button.setBounds(300, 85, 100, 30);
         button.setLayout(new FlowLayout());
         button.setForeground(new Color(0, 132, 137));
         Cursor cur = new Cursor(Cursor.HAND_CURSOR);
@@ -56,87 +56,83 @@ public class DictionaryApplication extends JFrame implements ActionListener {
 
         ImageIcon image1 = new ImageIcon("Icon\\add.png");
         addButton = new JButton();
-        addButton.setBounds(350, 152, 85, 60);
+        addButton.setBounds(350, 152, 110, 60);
         addButton.addActionListener(this);
         addButton.setIcon(image1);
-        addButton.setText("Thêm từ");
+        addButton.setText("Add Word");
         addButton.setFocusable(false);
-        addButton.setCursor(cur);
         addButton.setHorizontalTextPosition(JButton.CENTER);
         addButton.setVerticalTextPosition(JButton.BOTTOM);
         addButton.setBackground(new Color(201, 228, 214));
-        addButton.setToolTipText("Nháy chuột để thêm từ mới");
+        addButton.setToolTipText("Click left mouse to add a new word");
         this.add(addButton);
 
         ImageIcon image2 = new ImageIcon("Icon\\delete.png");
         delButton = new JButton();
-        delButton.setBounds(350, 240, 85, 60);
+        delButton.setBounds(350, 240, 110, 60);
         delButton.addActionListener(this);
         delButton.setIcon(image2);
-        delButton.setText("Xóa từ");
-        delButton.setCursor(cur);
+        delButton.setText("Delete word");
         delButton.setFocusable(false);
         delButton.setHorizontalTextPosition(JButton.CENTER);
         delButton.setVerticalTextPosition(JButton.BOTTOM);
         delButton.setBackground(new Color(201, 228, 214));
-        delButton.setToolTipText("Nháy chuột để xóa một từ");
+        delButton.setToolTipText("Click left mouse to delete a new word");
         this.add(delButton);
 
         ImageIcon image3 = new ImageIcon("Icon\\quit.png");
         quitButton = new JButton();
-        quitButton.setBounds(350, 510, 85, 60);
+        quitButton.setBounds(350, 510, 110, 60);
         quitButton.addActionListener(this);
         quitButton.setIcon(image3);
-        quitButton.setText("Thoát");
-        quitButton.setCursor(cur);
+        quitButton.setText("Exit");
         quitButton.setFocusable(false);
         quitButton.setHorizontalTextPosition(JButton.CENTER);
         quitButton.setVerticalTextPosition(JButton.BOTTOM);
         quitButton.setBackground(new Color(201, 228, 214));
-        quitButton.setToolTipText("Thoát chương trình");
+        quitButton.setToolTipText("Quit");
         this.add(quitButton);
 
         ImageIcon image4 = new ImageIcon("Icon\\listen.png");
         lisButton = new JButton();
-        lisButton.setBounds(350, 330, 85, 60);
+        lisButton.setBounds(350, 330, 110, 60);
         lisButton.addActionListener(this);
         lisButton.setIcon(image4);
-        lisButton.setText("Phát âm");
-        lisButton.setCursor(cur);
+        lisButton.setText("Pronounce");
         lisButton.setFocusable(false);
         lisButton.setHorizontalTextPosition(JButton.CENTER);
         lisButton.setVerticalTextPosition(JButton.BOTTOM);
         lisButton.setBackground(new Color(201, 228, 214));
-        lisButton.setToolTipText("Nháy chuột để nghe phát âm");
+        lisButton.setToolTipText("Click left mouse to listen");
         this.add(lisButton);
 
         ImageIcon image5 = new ImageIcon("Icon\\fix.png");
         fixButton = new JButton();
-        fixButton.setBounds(350, 420, 85, 60);
+        fixButton.setBounds(350, 420, 110, 60);
         fixButton.addActionListener(this);
         fixButton.setIcon(image5);
-        fixButton.setText("Sửa từ");
-        fixButton.setCursor(cur);
+        fixButton.setText("Modify");
         fixButton.setFocusable(false);
         fixButton.setHorizontalTextPosition(JButton.CENTER);
         fixButton.setVerticalTextPosition(JButton.BOTTOM);
         fixButton.setBackground(new Color(201, 228, 214));
-        fixButton.setToolTipText("Nháy chuột để sửa một từ");
+        fixButton.setToolTipText("Click left mouse to modify a new word");
         this.add(fixButton);
 
         ImageIcon image6 = new ImageIcon("Icon\\api1.png");
-        apiButton = new JButton();
-        apiButton.setBounds(570, 40, 120, 50);
-        apiButton.setIcon(image6);
-        apiButton.setBackground(new Color(201, 228, 214));
-        apiButton.setHorizontalTextPosition(JLabel.CENTER);
-        apiButton.setVerticalTextPosition(JLabel.BOTTOM);
-        apiButton.addActionListener(this);
-        apiButton.setText("Dịch đoạn văn");
-        apiButton.setCursor(cur);
-        apiButton.setFocusable(false);
-        apiButton.setToolTipText("English to Vietnamese");
-        this.add(apiButton);
+        apiButton2 = new JButton();
+        apiButton2.setBounds(570, 40, 120, 50);
+        apiButton2.setIcon(image6);
+        apiButton2.setBackground(new Color(201, 228, 214));
+        apiButton2.setHorizontalTextPosition(JLabel.CENTER);
+        apiButton2.setVerticalTextPosition(JLabel.BOTTOM);
+        apiButton2.addActionListener(this);
+        apiButton2.setText("Sentence");
+        apiButton2.setCursor(cur);
+        apiButton2.setFocusable(false);
+        apiButton2.setToolTipText("English to Vietnamese");
+        this.add(apiButton2);
+
 
         ImageIcon icon7 = new ImageIcon("Icon\\back.png");
         backButton = new JButton();
@@ -146,7 +142,7 @@ public class DictionaryApplication extends JFrame implements ActionListener {
         backButton.setFocusable(false);
         backButton.setCursor(cur);
         backButton.setIcon(icon7);
-        backButton.setToolTipText("Quay lại trang trước");
+        backButton.setToolTipText("Back to menu");
         backButton.setHorizontalTextPosition(JButton.CENTER);
         backButton.setVerticalTextPosition(JButton.BOTTOM);
         this.add(backButton);
@@ -158,7 +154,7 @@ public class DictionaryApplication extends JFrame implements ActionListener {
         textField.addActionListener(this);
         this.add(textField);
 
-        jt1 = new JTextArea("Nghĩa của từ: ");
+        jt1 = new JTextArea("Meaning: ");
         jt1.setForeground(new Color(255, 255, 255));
         jt1.setBounds(530, 150, 420, 450);
         Font font3 = new Font("Times New Roman", Font.BOLD, 18);
@@ -179,7 +175,7 @@ public class DictionaryApplication extends JFrame implements ActionListener {
         this.add(label1);
 
         Label label2;
-        label2 = new Label("Nhập từ cần dịch: ");
+        label2 = new Label("Enter words: ");
         label2.setBounds(20, 45, 150, 40);
         label2.setBackground(new Color(237, 164, 233));
         Font font2 = new Font("Times New Roman", Font.ROMAN_BASELINE, 18);
@@ -248,13 +244,11 @@ public class DictionaryApplication extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         int k = 0;
-        String string = "\\";
+        //String string = "\\";
         if (e.getSource().equals(button) || e.getSource().equals(textField)) {
             for (int i = 0; i < Dictionary.words.size(); i++) {
                 if (Dictionary.words.get(i).getWord_target().equalsIgnoreCase(textField.getText())) {
-                    jt1.setText("Nghĩa của từ: \n" + "          " + Dictionary.words.get(i).getWord_explain()
-                            + "\n\n" + "Cách đọc: \n" + "           "
-                            + string + Dictionary.words.get(i).getPronounce() + string);
+                    jt1.setText("Nghĩa của từ: \n" + "          " + Dictionary.words.get(i).getWord_explain());
                     jt1.setForeground(Color.BLACK);
                     this.add(jt1);
                 } else {
@@ -273,7 +267,7 @@ public class DictionaryApplication extends JFrame implements ActionListener {
             }
         }
         if (e.getSource() == addButton) {
-            new addWindow();
+            addWindow launchPage = new addWindow();
         }
 
         if (e.getSource() == delButton) {
@@ -283,7 +277,7 @@ public class DictionaryApplication extends JFrame implements ActionListener {
         if (e.getSource() == lisButton) {
             for (int i = 0; i < Dictionary.words.size(); i++) {
                 if (Dictionary.words.get(i).getWord_target().equalsIgnoreCase(textField.getText())) {
-                    DictionaryManagement.speakWord_target(i);
+                    DictionaryManagement.speakWord_explain(i);
                 }
             }
         }
@@ -292,8 +286,8 @@ public class DictionaryApplication extends JFrame implements ActionListener {
             new fixWindow();
         }
 
-        if (e.getSource() == apiButton) {
-            new AnhViet();
+        if (e.getSource() == apiButton2) {
+            new VietAnh();
         }
 
         if (e.getSource() == backButton) {
