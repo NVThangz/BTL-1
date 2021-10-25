@@ -8,6 +8,7 @@ public class main {
         DictionaryCommandline a = new DictionaryCommandline();
         a.dictionaryAdvanced();
         //DictionaryManagement.updateDictionary();
-        new DictionaryApplication();
+        //new DictionaryApplication();
+        new MenuWindow();
     }
 }

@@ -27,7 +27,7 @@ public class DictionaryApplication extends JFrame implements ActionListener {
     DictionaryApplication() {
         //frame
         try {
-            this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("bgr.png")))));
+            this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("Icon\\bgr.png")))));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -246,10 +246,13 @@ public class DictionaryApplication extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         int k = 0;
+        String string = "\\";
         if (e.getSource().equals(button) || e.getSource().equals(textField)) {
             for (int i = 0; i < Dictionary.words.size(); i++) {
                 if (Dictionary.words.get(i).getWord_target().equalsIgnoreCase(textField.getText())) {
-                    jt1.setText("Nghĩa của từ: \n" + "          " + Dictionary.words.get(i).getWord_explain());
+                    jt1.setText("Nghĩa của từ: \n" + "          " + Dictionary.words.get(i).getWord_explain()
+                                + "\n\n" + "Cách đọc: \n" + "           "
+                                + string + Dictionary.words.get(i).getPronounce() + string);
                     jt1.setForeground(Color.BLACK);
                     this.add(jt1);
                 } else {
