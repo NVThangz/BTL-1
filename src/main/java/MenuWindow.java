@@ -85,6 +85,7 @@ public class MenuWindow implements ActionListener {
         if (e.getSource() == jButton) {
             jFrame.dispose();
             DictionaryManagement.insertFromDatabase("av");
+            Dictionary.check = true;
             new DictionaryApplication();
         }
 
@@ -92,6 +93,7 @@ public class MenuWindow implements ActionListener {
         if (e.getSource() == jButton2) {
             jFrame.dispose();
             DictionaryManagement.insertFromDatabase("va");
+            Dictionary.check = false;
             new DictionaryApplication2();
         }
     }

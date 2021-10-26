@@ -58,11 +58,19 @@ public class addWindow implements ActionListener {
                         break;
                     }
                 }
-                if (test) {
+                if (test && Dictionary.check) {
                     JOptionPane.showMessageDialog(null, "Từ đã tồn tại!");
-                } else {
+                } else if (Dictionary.check){
                     Dictionary.words.add(w);
                     DictionaryManagement.dictionaryExportToDatabase("av");
+                    JOptionPane.showMessageDialog(null, "Đã thêm từ!");
+                }
+
+                if (test && !Dictionary.check) {
+                    JOptionPane.showMessageDialog(null, "Từ đã tồn tại!");
+                } else if (!Dictionary.check){
+                    Dictionary.words.add(w);
+                    DictionaryManagement.dictionaryExportToDatabase("va");
                     JOptionPane.showMessageDialog(null, "Đã thêm từ!");
                 }
             } else {

@@ -59,11 +59,21 @@ public class fixWindow implements ActionListener {
                         break;
                     }
                 }
-                if (test) {
+                if (test && Dictionary.check) {
                     Dictionary.words.get(k).setWord_explain(b);
                     DictionaryManagement.dictionaryExportToDatabase("av");
                     JOptionPane.showMessageDialog(null, "Đã sửa từ!");
-                } else {
+                }
+                else if (Dictionary.check){
+                    JOptionPane.showMessageDialog(null, "Không tìm thấy từ cần sửa");
+                }
+
+                if (test && !Dictionary.check) {
+                    Dictionary.words.get(k).setWord_explain(b);
+                    DictionaryManagement.dictionaryExportToDatabase("va");
+                    JOptionPane.showMessageDialog(null, "Đã sửa từ!");
+                }
+                else if (!Dictionary.check) {
                     JOptionPane.showMessageDialog(null, "Không tìm thấy từ cần sửa");
                 }
             } else {

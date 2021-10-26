@@ -51,11 +51,19 @@ public class deleteWindow implements ActionListener {
                         break;
                     }
                 }
-                if (test) {
+                if (test && Dictionary.check) {
                     Dictionary.words.remove(k - 1);
                     DictionaryManagement.dictionaryExportToDatabase("av");
                     JOptionPane.showMessageDialog(null, "Đã xóa từ!");
-                } else {
+                } else if (Dictionary.check) {
+                    JOptionPane.showMessageDialog(null, "Không tìm thấy từ cần xóa!");
+                }
+
+                if (test && !Dictionary.check) {
+                    Dictionary.words.remove(k - 1);
+                    DictionaryManagement.dictionaryExportToDatabase("va");
+                    JOptionPane.showMessageDialog(null, "Đã xóa từ!");
+                } else if (!Dictionary.check){
                     JOptionPane.showMessageDialog(null, "Không tìm thấy từ cần xóa!");
                 }
             } else {
