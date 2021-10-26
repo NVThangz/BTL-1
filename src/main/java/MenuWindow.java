@@ -27,7 +27,7 @@ public class MenuWindow implements ActionListener {
         jLabel2.setBounds(30, 10, 256, 256);
 
         jLabel3 = new JLabel("TỪ ĐIỂN");
-        jLabel3.setBounds(250, 120, 300, 70);
+        jLabel3.setBounds(250, 120, 300, 60);
         jLabel3.setFont(new Font("T", Font.BOLD, 50));
         jLabel3.setBackground(new Color(153, 209, 211));
 
