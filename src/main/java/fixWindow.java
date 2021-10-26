@@ -72,8 +72,7 @@ public class fixWindow implements ActionListener {
                     Dictionary.words.get(k).setWord_explain(b);
                     DictionaryManagement.dictionaryExportToDatabase("va");
                     JOptionPane.showMessageDialog(null, "Đã sửa từ!");
-                }
-                else if (!Dictionary.check) {
+                } else if (!Dictionary.check) {
                     JOptionPane.showMessageDialog(null, "Không tìm thấy từ cần sửa");
                 }
             } else {
